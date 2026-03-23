@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --lumie-gold: #c19b4a;
+  --lumie-burgundy: #43161a;
+  --lumie-gradient: linear-gradient(90deg, #43161a 0%, #c19b4a 100%);
+  --bg-soft: #fcfcfc;
+  --border-color: #e5e5e5;
+  --text-main: #333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-soft);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, .font-serif {
+  font-family: 'Playfair Display', serif;
+}
