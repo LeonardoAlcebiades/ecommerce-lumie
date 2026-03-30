@@ -1,249 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap');
+
 :root {
-  --lumie-gradient: linear-gradient(90deg, #43161a 0%, #c19b4a 100%);
+  /* Cores Oficiais Lumie */
   --lumie-gold: #c19b4a;
   --lumie-burgundy: #43161a;
-  --bg-soft: #fcfcfc;
-  --border-color: #e0e0e0;
-  --error-color: #d93025; 
+  --lumie-gradient: linear-gradient(90deg, #43161a 0%, #c19b4a 100%);
+  --text-dark: #1a1a1a;
+  --text-gray: #777777;
+  --white: #ffffff;
+  --border-light: #f0f0f0;
 }
 
-/* CONTAINER PRINCIPAL */
-.container-lumie {
-  max-width: 650px;
-  margin: 50px auto;
-  padding: 20px;
+/* Reset Geral */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: 'Inter', sans-serif;
+  background-color: var(--white);
+  color: var(--text-dark);
+  scroll-behavior: smooth;
+  line-height: 1.5;
 }
 
-/* TIPOGRAFIA */
-.title-serif {
-  font-family: 'Playfair Display', serif;
-  color: var(--lumie-burgundy);
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-.divider-gold {
-  width: 40px;
-  height: 2px;
-  background: var(--lumie-gold);
-  margin: 0 auto 40px;
-}
-
-/* MODAL / POP-UP */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(67, 22, 26, 0.4); 
-  backdrop-filter: blur(4px); 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  animation: fadeIn 0.3s ease;
-}
-
-.modal-content {
-  background: white;
-  padding: 40px;
-  border-radius: 30px;
-  max-width: 400px;
-  width: 90%;
-  text-align: center;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-  border: 1px solid var(--lumie-gold);
-}
-
-.modal-actions {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-/* FORMULÁRIO E INPUTS */
-.crud-form {
-  margin-bottom: 50px;
-}
-
-.input-group {
-  margin-bottom: 25px;
-  position: relative;
-}
-
-.input-group label {
-  display: block;
-  font-weight: 600;
-  font-size: 0.75rem;
-  color: var(--lumie-burgundy);
-  margin-bottom: 8px;
-  margin-left: 15px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.asterisk {
-  color: var(--error-color);
-  margin-left: 3px;
-  font-weight: bold;
-}
-
-.input-group input {
-  width: 100%;
-  padding: 16px 24px;
-  border-radius: 50px;
-  border: 1px solid var(--border-color);
-  background-color: #fff;
-  font-size: 1rem;
-  color: #333;
-  transition: all 0.3s ease;
-  box-sizing: border-box;
-}
-
-.input-group input:focus {
-  outline: none;
-  border-color: var(--lumie-gold);
-  box-shadow: 0 0 0 4px rgba(193, 155, 74, 0.1);
-}
-
-/* ESTADO DE ERRO */
-.input-group.error-state label { color: var(--error-color); }
-.input-group.error-state input { border-color: var(--error-color); background-color: #fffcfc; }
-
-.error-msg {
-  color: var(--error-color);
-  font-size: 0.75rem;
-  font-weight: 500;
-  margin-top: 6px;
-  margin-left: 20px;
-  display: block;
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-/* BOTÕES */
-.btn-primary, .btn-cancel {
-  width: 100%;
-  background: var(--lumie-gradient);
-  color: white;
-  border: none;
-  padding: 18px;
-  border-radius: 50px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.3s;
-  box-shadow: 0 4px 15px rgba(67, 22, 26, 0.2);
-  display: block;
-  text-align: center;
-}
-
-.btn-cancel {
-  margin-top: 15px;
-  background: #f5f5f5;
-  color: #666;
-  box-shadow: none;
-  border: 1px solid var(--border-color);
-}
-
-/* --- BARRA DE PESQUISA ATUALIZADA --- */
-.search-container {
-  margin: 30px auto 25px;
-  width: 100%;
-  position: relative;
-}
-
-.search-input {
-  width: 100%;
-  padding: 15px 25px 15px 55px; 
-  border-radius: 50px;
-  border: 1px solid var(--border-color);
-  background-color: #fff;
-  font-size: 1rem;
-  color: #333;
-  transition: all 0.3s ease;
-  box-sizing: border-box;
-}
-
-.search-input:focus {
-  outline: none;
-  border-color: var(--lumie-gold);
-  box-shadow: 0 4px 15px rgba(193, 155, 74, 0.15);
-}
-
-/* Lupa Minimalista Preta via SVG */
-.search-icon {
-  position: absolute;
-  left: 22px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 18px;
-  height: 18px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='black' stroke-width='2.5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z' /%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  pointer-events: none;
-  opacity: 0.8;
-}
-
-/* Efeito de Grifar (Highlight) */
-mark {
-  background-color: rgba(193, 155, 74, 0.25); /* Dourado Lumie suave */
-  color: var(--lumie-burgundy);
-  font-weight: 700;
-  padding: 0 1px;
-  border-radius: 2px;
-}
-
-/* LISTA DE CLIENTES REGISTRADOS */
-.list-section {
-  text-align: center;
-}
-
-.clients-grid {
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.client-item-card {
-  background: white;
-  border: 1px solid var(--border-color);
-  padding: 18px 30px;
-  border-radius: 50px;
+/* ==========================================
+   1. HEADER (NAVBAR) 
+   ========================================== */
+.lumie-header {
+  height: 90px;
+  padding: 0 6%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: var(--white);
+  border-bottom: 1px solid rgba(193, 155, 74, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  color: var(--lumie-gold);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 35px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 500;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover { color: var(--lumie-gold); }
+
+.header-actions {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Ícones de Lupa, Perfil e Carrinho */
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #000000 !important; /* PRETO PURO */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
   transition: all 0.3s ease;
 }
 
-.client-item-card:hover {
-  border-color: var(--lumie-gold);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  transform: scale(1.01);
+.icon-btn:hover {
+  transform: translateY(-2px);
+  color: var(--lumie-gold) !important;
 }
 
-.client-info { display: flex; flex-direction: column; text-align: left; }
-.client-name { font-weight: 700; color: var(--lumie-burgundy); font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.5px; }
-.client-details { font-size: 0.85rem; color: #777; margin-top: 4px; line-height: 1.4; }
+/* ==========================================
+   2. HERO SECTION
+   ========================================== */
+.hero-section {
+  text-align: center;
+  padding: 120px 20px;
+  background-color: var(--white);
+}
 
-.client-actions { display: flex; gap: 15px; }
-.btn-action { background: none; border: none; font-weight: 700; font-size: 0.8rem; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: opacity 0.2s; }
-.btn-action.edit { color: var(--lumie-gold); }
-.btn-action.delete { color: #b30000; }
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.8rem;
+  color: var(--text-dark);
+  max-width: 900px;
+  margin: 0 auto 20px;
+  line-height: 1.1;
+}
 
-.empty-msg {
-  color: #999;
-  font-style: italic;
-  font-size: 0.95rem;
-  margin-top: 30px;
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-gray);
+  margin-bottom: 35px;
+}
+
+/* ==========================================
+   3. CATEGORIES 
+   ========================================== */
+.categories-section { padding: 40px 6% 60px; }
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.category-card {
+  border: 1px solid var(--lumie-gold);
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--white);
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.category-image-wrapper { 
+  height: 320px; 
+  overflow: hidden; 
+  position: relative;
+}
+
+.category-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.category-card:hover .category-image { transform: scale(1.1); }
+
+.category-info { padding: 20px; text-align: center; }
+
+.category-title {
+  font-weight: 700;
+  color: var(--lumie-burgundy);
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+/* ==========================================
+   4. VITRINE
+   ========================================== */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  padding: 40px 6% 100px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.product-card {
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: 15px;
+  transition: 0.3s;
+  text-align: center;
+}
+
+.product-card:hover { border-color: var(--lumie-gold); transform: translateY(-5px); }
+
+.product-image {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+/* ==========================================
+   5. FOOTER PREMIUM (ESTILO MINIMALISTA LUXO)
+   ========================================== */
+.lumie-footer {
+  background-color: var(--lumie-burgundy) !important;
+  color: var(--white) !important;
+  padding: 100px 6% 60px !important; /* Muito respiro em cima e embaixo */
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: 100px; /* Espaço amplo entre colunas conforme a imagem */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-column h3.logo-text {
+  font-size: 2.2rem;
+  margin-bottom: 25px;
   display: block;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-5px); }
-  to { opacity: 1; transform: translateY(0); }
+.footer-description {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  opacity: 0.7;
+  max-width: 300px;
+  margin-bottom: 30px;
+}
+
+.footer-title {
+  color: var(--lumie-gold) !important;
+  font-size: 0.85rem !important; /* Menor e mais elegante */
+  font-weight: 600;
+  margin-bottom: 35px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 15px;
+}
+
+.footer-links a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.85rem;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+  color: var(--white) !important; /* Mantém branco no hover, sem amarelo */
+}
+
+/* ÍCONES SOCIAIS (ESTILO DA IMAGEM) */
+.social-icons {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.social-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  /* Fundo cinza bem transparente */
+  background: rgba(255, 255, 255, 0.1) !important; 
+  color: var(--white) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border: none !important;
+}
+
+.social-btn svg, .social-btn i {
+  font-size: 0.9rem; /* Ícones pequenos e discretos */
+}
+
+.social-btn:hover {
+  /* No hover, ele apenas ganha um pouco mais de brilho, sem mudar de cor */
+  background: rgba(255, 255, 255, 0.2) !important;
+  transform: translateY(-3px);
+  color: var(--white) !important; /* GARANTE QUE NÃO FICA AMARELO */
+}
+
+/* LINHA FINAL */
+.footer-bottom {
+  text-align: center;
+  margin-top: 80px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.7rem;
+  opacity: 0.4;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
