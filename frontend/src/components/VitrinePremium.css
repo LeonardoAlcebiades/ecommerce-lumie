@@ -1,0 +1,160 @@
+/* frontend/src/VitrinePremium.css */
+
+.vitrine-section {
+  padding: 80px 6% 120px; /* Muito respiro para manter o luxo */
+  text-align: center;
+  background-color: var(--white);
+}
+
+.premium-title {
+  font-family: 'Playfair Display', serif; /* Serifada como definimos */
+  font-size: 3.2rem;
+  color: var(--text-dark);
+  margin-bottom: 60px;
+  position: relative;
+  display: inline-block;
+}
+
+/* Linha dourada sutil abaixo do título */
+.premium-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 2px;
+  background-color: var(--lumie-gold);
+  margin: 15px auto 0;
+}
+
+/* Grade de 4 por linha para 8 produtos */
+.premium-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px; /* Espaço generoso conforme a foto do footer */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.premium-card {
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+/* Hover no card: borda dourada suave e elevação */
+.premium-card:hover {
+  border-color: var(--lumie-gold);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(193, 155, 74, 0.1);
+}
+
+.premium-image-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Garante que a foto seja quadrada */
+  overflow: hidden;
+}
+
+.premium-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Preenche o quadrado mantendo a proporção */
+}
+
+/* Conteúdo abaixo da foto */
+.premium-content {
+  padding: 25px;
+  text-align: left; /* Alinhado à esquerda como na Vivara */
+  position: relative; /* Essencial para a mágica do botão */
+  height: 110px; /* Altura fixa para o preço/botão não mover o card */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: all 0.3s ease-in-out;
+}
+
+.premium-product-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #4A0E1F; /* Cor Vinho da Lumie */
+  margin-bottom: 10px;
+  display: block; /* Garante que ele ocupe o espaço dele */
+}
+
+/* ==========================================
+   A MÁGICA DO HOVER COMEÇA AQUI
+   ========================================== */
+
+/* Grupo do Preço */
+.premium-price-group {
+  opacity: 1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(0);
+}
+
+.premium-price {
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.premium-installments {
+  font-size: 0.8rem;
+  color: var(--text-gray);
+  opacity: 0.8;
+}
+
+/* O Botão de Comprar (começa escondido) */
+.premium-buy-btn {
+  position: absolute; /* Sobrepõe o preço */
+  bottom: 25px; /* Alinhado com o padding inferior */
+  left: 25px;
+  right: 25px;
+  
+  opacity: 0; /* Escondido */
+  visibility: hidden;
+  
+  transition: all 0.3s ease-in-out;
+  transform: translateY(10px); /* Começa 10px para baixo */
+}
+
+/* Estilo do Botão - Degradê Premium */
+.btn-buy-premium {
+  width: 100%;
+  padding: 12px;
+  background: var(--lumie-gradient); /* Vinho -> Dourado */
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(74, 14, 31, 0.2);
+}
+
+/* ==========================================
+   AÇÕES DO HOVER (QUANDO O MOUSE ENTRA)
+   ========================================== */
+
+/* 1. Esconde o Preço */
+.premium-card:hover .premium-price-group {
+  opacity: 0; /* Desaparece */
+  transform: translateY(-5px); /* Sobe um pouquinho */
+}
+
+/* 2. Mostra o Botão e anima a subida */
+.premium-card:hover .premium-buy-btn {
+  opacity: 1; /* Aparece */
+  visibility: visible;
+  transform: translateY(0); /* Volta para a posição normal */
+}
+
+.premium-card:hover .premium-product-name {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}

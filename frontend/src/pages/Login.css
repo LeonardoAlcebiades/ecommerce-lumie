@@ -1,0 +1,201 @@
+.login-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background-color: #fcfcfc;
+  padding: 20px;
+}
+
+.login-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-card h2 {
+  color: #4a2a1a;
+  font-family: 'Serif', serif; /* Mantendo o estilo da imagem 996a46 */
+}
+
+.login-subtitle {
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  color: #4a2a1a;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.btn-primary-gold {
+  width: 100%;
+  padding: 16px;
+  /* Gradiente extraído da image_9b4e4e.png */
+  background: linear-gradient(90deg, #441818 0%, #b8974d 50%, #d4b463 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.btn-primary-gold:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+.login-footer {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.login-footer span {
+  color: #b8974d;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Container principal da checkbox mais compacto */
+.terms-wrapper {
+  margin: 15px 0 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.custom-checkbox-container {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #555;
+  user-select: none;
+  max-width: 320px; /* Mantém o texto compacto e centralizado */
+  text-align: left;
+}
+
+/* Esconde o checkbox padrão */
+.custom-checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Cria o novo checkbox customizado */
+.checkmark {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #eee;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  border: 1px solid #ddd;
+}
+
+/* Estilo quando selecionado (Amarelo Lumie) */
+.custom-checkbox-container input:checked ~ .checkmark {
+  background-color: #d4b463; /* Amarelo da imagem 996a46 */
+  border-color: #b8974d;
+}
+
+/* Cria o ícone de 'check' dentro do box */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+
+  /* 1. Definimos o tamanho do 'L' que forma o check */
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+
+  /* 2. Rotacionamos para virar um check */
+  transform: rotate(45deg);
+
+  /* 3. Centralização Absoluta Manual */
+  /* Movemos para o meio e compensamos metade do tamanho do ícone */
+  left: 50%;
+  top: 50%;
+  margin-left: -1px; /* Metade da largura (aprox) */
+  margin-top: -1px;  /* Metade da altura (aprox) */
+}
+
+.custom-checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.custom-checkbox-container .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 4px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Estilização dos Links de Termos */
+.terms-text {
+  line-height: 1.4;
+}
+
+.highlight-link {
+  color: #d4b463; /* Amarelo elegante */
+  text-decoration: underline; /* Sublinhado solicitado */
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.highlight-link:hover {
+  color: #b8974d; /* Tom levemente mais escuro no hover */
+}
+
+.error-message {
+  color: #ff4d4d;
+  font-size: 11px;
+  margin-top: 4px;
+  display: block;
+  font-weight: 500;
+}
+
+.input-error {
+  border-color: #ff4d4d !important;
+  background-color: #fff8f8 !important;
+}
+
+.checkmark-error {
+  border-color: #ff4d4d !important;
+}

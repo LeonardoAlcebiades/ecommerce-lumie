@@ -1,0 +1,45 @@
+.colecoes-acesso-section {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Valor ajustado para subir o botão até o retângulo vermelho */
+  margin-top: -215px; 
+  /* Mantém o distanciamento da seção "A Experiência Lumie" abaixo */
+  margin-bottom: 80px; 
+  position: relative;
+  z-index: 10;
+}
+
+.colecoes-acesso-container {
+  width: 90%; 
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.btn-colecoes-master {
+  width: 90%;
+  max-width: 1200px;
+  padding: 22px 0;
+  /* Dourado degradê conforme solicitado anteriormente */
+  background: linear-gradient(135deg, #f3e5ab 0%, #c19b4a 50%, #f3e5ab 100%);
+  color: #333;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(193, 155, 74, 0.2);
+  transition: all 0.3s ease;
+}
+/* Efeito de brilho no hover */
+.btn-colecoes-master:hover {
+  background: linear-gradient(135deg, #f7edc4 0%, #d4ac61 50%, #f7edc4 100%);
+  transform: translateY(-2px); /* Sobe 2px */
+  box-shadow: 0 6px 20px rgba(193, 155, 74, 0.4);
+}

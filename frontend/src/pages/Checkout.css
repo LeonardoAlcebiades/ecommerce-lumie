@@ -1,0 +1,1092 @@
+.checkout-page-bg {
+    background-color: #fdfdfd;
+    min-height: 100vh;
+    padding-top: 120px; /* Ajuste para não ficar atrás do header fixo */
+    padding-bottom: 80px;
+}
+
+.checkout-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Título igual ao do Carrinho */
+.titulo-sessao {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    color: #4a1d1d;
+    margin-bottom: 80px;
+    border-left: 6px solid #c19b4a;
+    padding-left: 18px;
+    font-weight: 400;
+}
+
+/* Stepper */
+.checkout-stepper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.step-item {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.step-item.active {
+    background-color: #c5a059;
+}
+
+.step-line {
+    height: 2px;
+    background-color: #e0e0e0;
+    width: 60px;
+    margin: 0 10px;
+}
+
+/* Card do Formulário */
+.checkout-card {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.checkout-section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: #6d1e1e;
+    margin-bottom: 30px;
+}
+
+/* Estilo dos Inputs */
+.checkout-form .form-group {
+    margin-bottom: 20px;
+}
+
+.checkout-form label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.checkout-form input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #f0f0f0;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.checkout-form input:focus {
+    border-color: #c5a059;
+}
+
+/* Grid do Formulário */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* Botão de Finalizar */
+.btn-proximo-checkout {
+    margin-top: 20px;
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #4a1d1d 0%, #c5a059 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.btn-proximo-checkout:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 600px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    .titulo-sessao {
+        font-size: 2rem;
+    }
+    .checkout-card {
+        padding: 20px;
+    }
+}
+
+/* Mensagens de Erro */
+.msg-erro {
+    color: #d93025;
+    font-size: 11px;
+    margin-top: 4px;
+    display: block;
+    font-weight: 500;
+}
+
+/* Borda vermelha no input quando houver erro */
+.input-erro {
+    border-color: #d93025 !important;
+    background-color: #fff8f7 !important;
+}
+
+/* Desabilitar botão se houver erro crítico */
+.btn-proximo-checkout:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.input-readonly {
+    background-color: #f0f0f0 !important; /* Cinza mais escuro para indicar bloqueio */
+    color: #666;
+    cursor: not-allowed;
+    border: 1px solid #ddd !important;
+}
+
+/* Garante que o form-row sempre divida em 50/50 */
+.form-row {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.checkout-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 50px auto;
+  gap: 15px; /* Cria o espaçamento entre bolinhas e linhas */
+}
+
+.step-circle {
+  width: 45px; /* Bolinhas maiores e mais elegantes */
+  height: 45px;
+  border-radius: 50%;
+  background-color: #f3f4f6;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 18px;
+  transition: all 0.4s ease;
+  border: 2px solid transparent;
+}
+
+.step-circle.active {
+  background-color: #d4af37;
+  color: white;
+  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.2); /* Sombra suave para elegância */
+}
+
+.step-line {
+  width: 80px; /* Linhas um pouco mais longas */
+  height: 3px; /* Linha levemente mais espessa */
+  background-color: #e5e7eb;
+  transition: background-color 0.4s ease;
+}
+
+/* Linha dourada quando o próximo passo estiver ativo */
+.step-line.active {
+  background-color: #d4af37;
+}
+
+/* Gradiente Dourado para o Cartão Visual */
+.visual-card-display {
+  background: linear-gradient(135deg, #421616 0%, #d4af37 100%);
+  border-radius: 20px;
+  padding: 30px;
+  color: white;
+  position: relative;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.method-row {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.method-row.active {
+  border-color: #d4af37;
+}
+
+.radio-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  margin-right: 15px;
+}
+
+.active .radio-dot {
+  background: #421616;
+  border-color: #421616;
+}
+
+/* Switch Estilizado */
+.split-cards-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff9f0;
+  border: 1px solid #faebd7;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.switch input { opacity: 0; width: 0; height: 0; }
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+input:checked + .slider { background-color: #d4af37; }
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px; width: 18px;
+  left: 4px; bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+.checkout-actions-row {
+    display: flex;
+    align-items: stretch; /* Força ambos a esticarem para a mesma altura */
+    gap: 12px;
+    margin-top: 25px;
+    width: 100%;
+}
+
+.btn-voltar-checkout, 
+.btn-proximo-checkout {
+    height: 50px; /* Altura fixa e idêntica para ambos */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0 15px; /* Padding lateral apenas */
+    box-sizing: border-box; /* Garante que a borda não aumente o tamanho */
+    text-align: center;
+}
+
+.btn-voltar-checkout {
+    flex: 1;
+    background-color: #ffffff;
+    color: #333;
+    border: 1px solid #e0e0e0;
+    font-weight: 500;
+}
+
+.btn-voltar-checkout:hover {
+  background-color: #d4af37;
+  border-color: #d4af37;
+  color: #ffffff;
+}
+
+.btn-proximo-checkout {
+    flex: 2; /* Continua sendo maior em largura, mas com altura igual */
+    background: linear-gradient(90deg, #4b1a1a 0%, #d4af37 100%);
+    color: white;
+    border: none;
+    font-weight: bold;
+    margin-top: 0 !important; /* Remove o margin-top de 20px que você tinha antes */
+}
+
+.btn-proximo-checkout:hover {
+  opacity: 0.9;
+}
+
+/* Container de múltiplos cartões */
+.split-cards-toggle {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px dashed #d4af37;
+  margin-bottom: 20px;
+}
+
+/* O Select de quantidade */
+.select-quantidade-elegante {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #d4af37;
+  background-color: white;
+  color: #4b1a1a;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Abas de seleção de qual cartão editar */
+.card-selector-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.card-selector-tabs button {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  /* Fundo branco inicial, com bordas finas conforme imagem */
+  background: white; 
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estado Ativo: Gradiente Premium */
+.card-selector-tabs button.active {
+  /* Gradiente que vai do marrom escuro ao dourado, igual ao visual do cartão físico */
+  background: linear-gradient(90deg, #4b1a1a 0%, #d4af37 100%);
+  color: white; /* Texto branco para contraste no fundo degradê */
+  border: none; /* Remove a borda para um visual mais limpo */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-weight: bold;
+}
+
+
+.payment-methods-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Aumenta o espaço entre as opções */
+  margin-bottom: 24px;
+}
+
+.method-row {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px; /* Mais espaço interno para elegância */
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  gap: 15px; /* Espaço entre o rádio, o ícone e o texto */
+}
+
+.method-row:hover {
+  border-color: #d4af37;
+  background-color: #fdfaf2;
+}
+
+.method-row.active {
+  border-color: #d4af37;
+  background-color: #fdfaf2;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.1);
+}
+
+.method-row svg {
+  color: #555;
+  flex-shrink: 0;
+}
+
+.method-row.active svg {
+  color: #d4af37;
+}
+
+/* Checkout.css - Ajustes de alinhamento e cores nas opções de frete */
+
+/* Container geral da etapa 2 para garantir compacidade */
+.delivery-step-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espaço compacto entre título e cards */
+}
+
+/* Lista de cards de frete */
+.delivery-methods-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Espaço entre cada card */
+}
+
+/* Estilo base do card de frete conforme imagem */
+.method-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Texto à esquerda, preço à direita */
+  padding: 15px 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: white;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Estado ativo do card (borda amarela) */
+.method-row.active {
+  border-color: #d4af37;
+  background-color: #fdfaf2;
+}
+
+/* Estilo da bolinha de seleção (radio) */
+.radio-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  margin-right: 15px; /* Espaço compacto entre rádio e texto */
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Bolinha de seleção ativa */
+.method-row.active .radio-dot {
+  background-color: #4b1a1a;
+  border-color: #4b1a1a;
+}
+
+/* Informações de texto à esquerda */
+.method-info {
+  flex: 1; /* Ocupa o espaço restante à esquerda */
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.method-info strong {
+  font-size: 15px;
+  color: #333;
+}
+
+.method-info p {
+  font-size: 13px;
+  color: #777;
+  margin: 0;
+}
+
+/* --- SOLICITAÇÃO ESPECÍFICA: CORES E FONTES NO FINAL DO CARD --- */
+
+/* Base para preço/grátis */
+.delivery-price {
+  font-size: 16px; /* Fonte maior para elegância no final do card */
+  font-weight: bold;
+  flex-shrink: 0;
+  margin-left: auto; /* Garante que fique totalmente à direita */
+}
+
+/* Preço específico (amarelo) conforme imagem */
+.delivery-price.highlight {
+  color: #d4af37;
+}
+
+/* Texto "Grátis" específico (verde) conforme imagem */
+.delivery-price.free {
+  color: #27ae60;
+}
+
+/* Container de Alternância (Múltiplos Cartões) */
+.split-cards-toggle-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fdfaf2; /* Tom creme suave */
+  border: 1px dashed #d4af37;
+  padding: 15px 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.toggle-texts strong {
+  display: block;
+  font-size: 14px;
+  color: #4b1a1a;
+}
+
+.toggle-texts p {
+  font-size: 12px;
+  color: #777;
+  margin: 0;
+}
+
+/* Abas de Seleção (1º Cartão, 2º Cartão...) */
+.card-tabs-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tab-item {
+  flex: 1;
+  height: 40px;
+  border: 1px solid #e0e0e0;
+  background: white;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.tab-item.active {
+  background: linear-gradient(90deg, #4b1a1a 0%, #d4af37 100%);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.visual-card-display {
+  background: linear-gradient(135deg, #421616 0%, #d4af37 100%);
+  border-radius: 15px;
+  padding: 25px;
+  color: white;
+  margin-bottom: 25px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-split-value {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.chip {
+  width: 40px;
+  height: 30px;
+  background: linear-gradient(135deg, #f0d080, #b08030);
+  border-radius: 4px;
+}
+
+.card-number-dots {
+  font-size: 20px;
+  letter-spacing: 3px;
+  font-family: 'Courier New', monospace;
+}
+
+.checkout-actions-row {
+  display: flex;
+  align-items: stretch; /* Garante que ambos tenham a mesma altura exata */
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.btn-voltar-checkout, 
+.btn-proximo-checkout {
+  height: 52px; /* Altura fixa para ambos */
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin: 0 !important; /* Mata qualquer margem residual */
+}
+
+.btn-voltar-checkout {
+  flex: 1;
+  background: white;
+  border: 1px solid #e0e0e0;
+  color: #555;
+}
+
+.btn-proximo-checkout {
+  flex: 2;
+  background: linear-gradient(90deg, #4b1a1a 0%, #d4af37 100%);
+  color: white;
+  border: none;
+  font-weight: bold;
+  text-transform: none; /* Mantém como você escreveu no JSX */
+}
+
+.btn-proximo-checkout:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+/* 1. Alinhamento de Ícones e Métodos (Centralizados e Juntos) */
+.method-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinha o conteúdo ao início */
+    padding: 16px 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: white;
+    transition: all 0.2s ease-in-out;
+    gap: 12px; /* Espaço fixo e curto entre rádio, ícone e texto */
+}
+
+/* Garante que o ícone e o texto não se espalhem */
+.method-info {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre o ícone (SVG/Emoji) e o nome do método */
+    flex: none; 
+}
+
+/* 2. Ajuste da Borda (Linha Sólida em vez de Pontilhada) */
+.split-cards-toggle-box, 
+.split-cards-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fdfaf2;
+    border: 1px solid #d4af37; /* Alterado de 'dashed' para 'solid' */
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+/* 3. Seleção para até 4 Cartões (Ajuste das Abas) */
+.card-tabs-container, 
+.card-selector-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+    flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+}
+
+.tab-item, 
+.card-selector-tabs button {
+    flex: 1;
+    min-width: 80px; /* Garante que os botões não fiquem minúsculos */
+    padding: 10px 5px;
+    border: 1px solid #e0e0e0;
+    background: white;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+/* 4. Estilo do Select de Quantidade */
+.select-quantidade-elegante {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #d4af37;
+    background-color: white;
+    color: #4b1a1a;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Ajuste específico para o preço/texto à direita no frete (se necessário) */
+.delivery-price {
+    margin-left: auto; /* Joga apenas o preço para o final do card */
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/* 1. Container de Divisão de Valores (Azul) */
+.division-values-container {
+    background-color: #f0f7ff; /* Tom azul claro da imagem */
+    border: 1px solid #cce3fd;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.division-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #004085;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+/* Grid dinâmico para os inputs de valores (até 4 cartões) */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.value-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.value-input-group label {
+    font-size: 0.85rem;
+    color: #555;
+    font-weight: 600;
+}
+
+.value-field-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.value-field-wrapper span {
+    position: absolute;
+    left: 12px;
+    font-weight: bold;
+    color: #777;
+}
+
+.value-field-wrapper input {
+    width: 100%;
+    padding: 10px 10px 10px 35px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    background: white;
+    font-weight: bold;
+}
+
+/* 2. Total da Compra no Card de Divisão */
+.division-total-row {
+    margin-top: 10px;
+    padding-top: 15px;
+    border-top: 1px solid #d0e3ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.division-total-row span:first-child {
+    color: #004085;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.division-total-row .total-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: #1a2a4e;
+}
+
+/* 3. Ajuste no Card de Ativação (Amarelo) */
+.split-cards-toggle-box {
+    background-color: #fdfaf2;
+    border: 1px solid #d4af37;
+    padding: 15px 20px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* 4. Abas de Cartões (Suporte para 4) */
+.card-selector-tabs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Divide em 4 colunas iguais */
+    gap: 8px;
+    margin: 20px 0;
+}
+
+.card-selector-tabs button {
+    padding: 12px 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    border: 1px solid #e0e0e0;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card-selector-tabs button.active {
+    background: linear-gradient(90deg, #4b1a1a 0%, #d4af37 100%);
+    color: white;
+    border: none;
+    font-weight: bold;
+}
+
+/* 5. Responsividade para Celulares */
+@media (max-width: 600px) {
+    .card-selector-tabs {
+        grid-template-columns: repeat(2, 1fr); /* 2x2 no mobile */
+    }
+    
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.method-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinha tudo ao início por padrão */
+    padding: 18px 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    background-color: white;
+    gap: 15px; /* Espaço fixo entre a bolinha e o texto */
+    transition: all 0.2s ease;
+}
+
+.method-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Garante que os textos alinhem à esquerda */
+    gap: 2px;
+    /* Remova o 'flex: 1' se o texto estiver esticando demais */
+    flex: 0 1 auto; 
+}
+
+.method-info strong {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.2;
+    text-align: left;
+}
+
+.method-info p {
+    font-size: 13px;
+    color: #777;
+    margin: 0;
+    line-height: 1.2;
+    text-align: left;
+}
+
+.delivery-price {
+    /* O segredo está aqui: isso empurra SÓ o preço para a direita, 
+       mantendo o resto agrupado na esquerda */
+    margin-left: auto; 
+    font-weight: bold;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+.radio-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    flex-shrink: 0; /* Impede a bolinha de achatar */
+}
+
+/* 1. O SELETOR DE QUANTIDADE (Igual à imagem) */
+.split-cards-toggle-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fdfaf2;
+    border: 1px solid #d4af37;
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.select-quantidade-cartoes {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #d4af37;
+    background-color: white;
+    color: #4b1a1a;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    font-size: 0.9rem;
+}
+
+/* 2. GRID DE VALORES (O "Card Azul" da segunda print) */
+.division-values-container {
+    background-color: #f0f7ff;
+    border: 1px solid #cce3fd;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.values-grid {
+    display: grid;
+    /* Isso faz com que os inputs se ajustem sozinhos em colunas */
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.value-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.value-input-group label {
+    font-size: 12px;
+    color: #4b1a1a;
+    font-weight: 600;
+}
+
+.value-field-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.value-field-wrapper span {
+    position: absolute;
+    left: 10px;
+    font-weight: bold;
+    color: #666;
+    font-size: 14px;
+}
+
+.value-field-wrapper input {
+    width: 100%;
+    padding: 10px 10px 10px 35px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-weight: 600;
+    background: white;
+}
+
+/* 3. ABAS DE NAVEGAÇÃO (1º ao 4º Cartão) */
+.card-tabs-container {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.tab-item {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    background: white;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.tab-item.active {
+    background: linear-gradient(90deg, #4b1a1a 0%, #d4af37 100%);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* 4. TOTAL DA COMPRA (Rodapé do card azul) */
+.division-total-row {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #d0e3ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total-label {
+    color: #004085;
+    font-weight: 500;
+}
+
+.total-value-display {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1a2a4e;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 600px) {
+    .values-grid {
+        grid-template-columns: 1fr 1fr; /* 2 colunas no celular */
+    }
+    .card-tabs-container {
+        flex-wrap: wrap;
+    }
+    .tab-item {
+        min-width: 45%;
+    }
+}
+
+.erro-mensagem-vermelha {
+  color: #ff4d4d;
+  font-size: 11px;
+  font-weight: bold;
+  margin-left: 8px;
+}
+
+.input-erro {
+  border: 1.5px solid #ff4d4d !important;
+  background-color: #fff5f5;
+}

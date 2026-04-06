@@ -1,0 +1,141 @@
+.toast-container {
+  position: absolute; /* Sobrepõe os cards */
+  bottom: 0;
+  background: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  border: 1px solid #d4af37;
+  border-left: 5px solid #4a1a1a;
+  width: 100%;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: all;
+}
+
+.toast-stack-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 320px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.toast-icon {
+  width: 20px;
+  height: 20px;
+  background: #4a1a1a; /* O bordô das suas prints */
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.toast-mensagem {
+  color: #4a1a1a;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.toast-erro { border-left-color: #ff4d4d; }
+
+@keyframes slideIn {
+  from { transform: translateX(120%) scale(0.9); opacity: 0; }
+  to { transform: translateX(0) scale(1); opacity: 1; }
+}
+
+.toast-container:nth-last-child(1) { transform: translateY(0px) scale(1); z-index: 100; opacity: 1; }
+.toast-container:nth-last-child(2) { transform: translateY(-10px) scale(0.95); z-index: 90; opacity: 0.8; }
+.toast-container:nth-last-child(3) { transform: translateY(-20px) scale(0.90); z-index: 80; opacity: 0.6; }
+.toast-container:nth-last-child(n+4) { transform: translateY(-30px) scale(0.85); z-index: 70; opacity: 0; }
+
+.toast-container {
+  animation: slideIn 0.4s ease-out;
+}
+/* Quando a notificação estiver saindo */
+.toast-fade-out {
+  opacity: 0 !important;
+  transform: translateX(100%) scale(0.9) !important; /* Desliza para a direita e encolhe */
+  pointer-events: none;
+}
+
+.toast-container {
+  /* ... mantenha suas outras propriedades ... */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Curva de transição suave */
+}
+
+/* Container que segura o Toast */
+.toast-wrapper {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Transição suave */
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Estado de entrada (opcional para ficar mais bonito) */
+.fade-enter {
+  animation: slideIn 0.4s ease-out;
+}
+
+/* Estado de saída FLUÍDA */
+.fade-exit {
+  opacity: 0;
+  transform: translateX(50px) scale(0.9); /* Desliza um pouco e encolhe */
+  pointer-events: none;
+  filter: blur(4px); /* Adiciona um leve desfoque na saída */
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Toast de Boas-vindas - Estilo image_9bc632.png */
+.toast-welcome {
+  position: fixed;
+  bottom: 20px;
+  right: 20px; /* Canto inferior direito */
+  background-color: #fff; /* Fundo branco do card */
+  padding: 15px 25px;
+  border-radius: 10px; /* Bordas arredondadas do card */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Sombra suave */
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: slideInRight 0.5s ease-out, fadeOut 0.5s ease-in 3.5s forwards;
+  border: 1px solid #eee; /* Borda leve igual ao card da aliança */
+}
+
+/* Ícone de Checkmark customizado (Marrom) */
+.toast-welcome::before {
+  content: '✓'; /* Usando caractere para simplicidade */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 22px;
+  height: 22px;
+  background-color: #4a2a1a; /* Marrom profundo da Lumie */
+  color: #fff;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Texto do Toast */
+.toast-welcome-text {
+  color: #333; /* Texto escuro e legível */
+  font-size: 14px;
+  font-family: 'Serif', serif; /* Mantendo a elegância da Lumie */
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}

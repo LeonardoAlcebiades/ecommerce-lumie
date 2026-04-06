@@ -1,0 +1,167 @@
+/* Container Pai - Removi o padding de 40px que estava segurando o crescimento lateral */
+.colecoes-page {
+  width: 100%;
+  padding: 0 0 80px 0; 
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Garante que Header e Mosaico fiquem centralizados no eixo X */
+}
+
+/* --- CABEÇALHO CENTRALIZADO --- */
+.colecoes-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;    /* Centraliza os itens no flex */
+  justify-content: center;
+  text-align: center;      /* Garante que o texto quebre centralizado */
+  padding: 120px 20px 80px 20px; 
+  width: 100%;
+}
+
+.header-title {
+  font-family: 'Playfair Display', serif; 
+  font-size: 4.5rem;       /* Aumentado para impacto */
+  color: #c19b4a; 
+  margin: 0 0 15px 0;
+  text-transform: uppercase;
+  letter-spacing: 12px;    /* Espaçamento luxuoso */
+  font-weight: 400;
+}
+
+.header-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3rem;
+  color: #999; 
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+}
+
+/* --- CONTAINER DO MOSAICO (LARGURA) --- */
+.mosaico-container {
+  width: 95% !important;   /* Ocupa quase a tela toda */
+  max-width: 1800px;       /* Limite alto para monitores Ultra-Wide */
+  margin: 0 auto;
+}
+
+.colecoes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colunas iguais que esticam */
+  grid-auto-rows: 450px;                 /* Aumentado para cards imponentes */
+  gap: 25px; 
+}
+
+/* --- CARDS E IMAGENS --- */
+.colecao-card {
+  background-color: #f9f9f9;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end; 
+  justify-content: flex-end; 
+  padding: 40px;
+  cursor: pointer;
+  border: none;
+}
+
+/* Configuração para a imagem redimensionar ao card */
+.placeholder-img {
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%;
+  background-size: cover;      /* REAJUSTA A IMAGEM AO TAMANHO DO CARD */
+  background-position: center; /* MANTÉM O FOCO NO MEIO */
+  background-repeat: no-repeat;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 1;
+}
+
+/* Definição de Tamanhos do Mosaico */
+.small { grid-column: span 1; }
+.wide { grid-column: span 2; }
+.portrait { grid-row: span 2; }
+.wide-tall { grid-column: span 2; grid-row: span 2; }
+
+/* Texto sobre a imagem */
+.colecao-content {
+  z-index: 2;
+  text-align: right;
+  pointer-events: none;
+}
+
+.label-colecao {
+  font-size: 0.8rem;
+  color: #333;
+  letter-spacing: 3px;
+  margin: 0 0 5px 0;
+  text-transform: uppercase;
+}
+
+.nome-colecao {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;       /* Nome maior para acompanhar o card maior */
+  color: #000;
+  border-bottom: 2px solid #000;
+  display: inline-block;
+  padding-bottom: 2px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.colecao-card:hover .placeholder-img {
+  transform: scale(1.08);
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .header-title { font-size: 3.5rem; }
+  .colecoes-grid { grid-auto-rows: 350px; }
+}
+
+@media (max-width: 1024px) {
+  .colecoes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .colecoes-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 400px;
+  }
+  .wide, .wide-tall { grid-column: span 1; }
+  .header-title { font-size: 2.2rem; letter-spacing: 5px; }
+}
+
+.placeholder-img {
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%;
+  
+  /* Faz a imagem preencher o card inteiramente sem deixar espaços */
+  background-size: cover; 
+  
+  /* Ajusta o foco: você pode testar 'center', 'top' ou '80%' para subir/descer o anel */
+  background-position: center; 
+  
+  background-repeat: no-repeat;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 1;
+}
+
+/* Adicione um overlay sutil para garantir que o texto seja legível sobre a foto */
+.colecao-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 60%, rgba(255,255,255,0.4));
+  z-index: 1;
+}

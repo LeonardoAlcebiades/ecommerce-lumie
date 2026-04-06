@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Chatbot.css';
 
 const BotLumieIcon = () => (
@@ -17,12 +17,59 @@ const UserSvgIcon = () => (
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [inputValue, setInputValue] = useState("");
+  
+  const [messages, setMessages] = useState([
+    { id: 1, text: "Olá! Como podemos ajudar você hoje?", sender: 'bot' }
+  ]);
+
+  const messagesEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    if (isOpen) scrollToBottom();
+  }, [messages, isOpen]);
+
+  const processarRespostaBot = (userInput) => {
+    const msg = userInput.toLowerCase();
+    if (msg.includes("ajuda") || msg.includes("socorro") || msg.includes("preciso de")) {
+      return "Estou aqui para brilhar no seu atendimento! Posso sugerir modelos, fornecer links de coleções, ajudar com o frete ou tirar dúvidas sobre o tamanho do aro. Como prefere seguir?";
+    }
+    if (msg.includes("link") || msg.includes("coleção") || msg.includes("site")) {
+      return "Você pode explorar nossas coleções clicando no link 'Início' no topo da página ou descendo até a nossa galeria de produtos premium!";
+    }
+    if (msg.includes("prazo") || msg.includes("entrega") || msg.includes("chega")) {
+      return "Nossos prazos variam conforme sua região. No carrinho, após inserir o seu CEP, calculamos o tempo exato para você!";
+    }
+    if (msg.includes("valor") || msg.includes("preço") || msg.includes("quanto")) {
+      return "Temos peças para todos os momentos. Você pode conferir os valores individuais na nossa vitrine ou o total acumulado no seu carrinho!";
+    }
+    return "Entendi! Pode me dar mais detalhes? Ou tente palavras como 'ajuda', 'link' ou 'prazo'.";
+  };
 
   const handleSend = () => {
-    if (inputValue.trim()) {
-      console.log("Mensagem enviada:", inputValue);
-      setInputValue("");
-    }
+    if (!inputValue.trim()) return;
+
+    const novaMensagemUsuario = {
+      id: Date.now(),
+      text: inputValue,
+      sender: 'user'
+    };
+
+    setMessages(prev => [...prev, novaMensagemUsuario]);
+    const promptParaBot = inputValue;
+    setInputValue("");
+
+    setTimeout(() => {
+      const respostaBot = {
+        id: Date.now() + 1,
+        text: processarRespostaBot(promptParaBot),
+        sender: 'bot'
+      };
+      setMessages(prev => [...prev, respostaBot]);
+    }, 800);
   };
 
   const handleKeyDown = (e) => {
@@ -51,19 +98,30 @@ export default function Chatbot() {
           </div>
 
           <div className="chat-messages-premium">
-            <div className="msg-row bot">
-              <div className="avatar bot"><BotLumieIcon /></div>
-              <div className="bubble-wrapper">
-                <div className="bubble">Olá! Como podemos ajudar você hoje?</div>
+            {messages.map((msg) => (
+              <div key={msg.id} className={`msg-row ${msg.sender}`}>
+                {/* Avatar aparece na esquerda apenas se for o BOT */}
+                {msg.sender === 'bot' && (
+                  <div className="avatar bot">
+                    <BotLumieIcon />
+                  </div>
+                )}
+
+                <div className="bubble-wrapper">
+                  <div className={`bubble ${msg.sender === 'user' ? 'user-gradient' : ''}`}>
+                    {msg.text}
+                  </div>
+                </div>
+
+                {/* Avatar aparece na direita apenas se for o USER */}
+                {msg.sender === 'user' && (
+                  <div className="avatar user">
+                    <UserSvgIcon />
+                  </div>
+                )}
               </div>
-            </div>
-            
-            <div className="msg-row user">
-              <div className="avatar user"><UserSvgIcon /></div>
-              <div className="bubble-wrapper">
-                <div className="bubble user-gradient">Gostaria de saber o prazo de entrega para SP.</div>
-              </div>
-            </div>
+            ))}
+            <div ref={messagesEndRef} />
           </div>
 
           <div className="chat-footer-premium">

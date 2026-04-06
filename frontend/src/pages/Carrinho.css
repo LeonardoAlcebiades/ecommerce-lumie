@@ -1,0 +1,335 @@
+/* Background Global da Página conforme referência */
+.carrinho-page-bg {
+  background-color: #fcfcfc;
+  min-height: 100vh;
+  padding: 60px 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.carrinho-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.titulo-sessao {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  color: #4a1a1a;
+  margin-bottom: 40px;
+  border-left: 6px solid #c19b4a;
+  padding-left: 18px;
+  font-weight: 400;
+}
+
+/* --- BANNER DE URGÊNCIA --- */
+.urgencia-banner-replica {
+  background: #fdfaf3;
+  border: 1px solid #f0e0c0;
+  border-radius: 12px;
+  padding: 30px;
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+  margin-bottom: 40px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+.urgencia-icon-circle {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.urgencia-content-replica { flex: 1; }
+
+.urgencia-main-text-replica {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.timer-destaque-replica {
+  color: #c19b4a;
+  font-weight: 700;
+  font-size: 2.2rem;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.timer-minutos-text {
+  font-size: 1rem;
+  color: #888;
+  font-weight: 400;
+}
+
+.barra-progresso-bg-replica {
+  width: 100%;
+  height: 8px;
+  background: #e8e8e8;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.barra-progresso-fill-replica {
+  height: 100%;
+  background: linear-gradient(90deg, #6d1e1e 0%, #c19b4a 100%);
+  transition: width 1s linear;
+}
+
+/* --- GRID LAYOUT --- */
+.carrinho-grid-replica {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+/* --- PRODUTO CARD (AJUSTADO PARA POSICIONAMENTO) --- */
+.produto-card-replica {
+  display: flex;
+  align-items: center;
+  padding: 25px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background: #fff;
+  position: relative; /* CRUCIAL para os controles absolutos */
+  transition: box-shadow 0.3s;
+  margin-bottom: 20px;
+}
+
+.produto-card-replica:hover {
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.produto-img-container-replica {
+  border-radius: 8px; /* Ajuste conforme o seu layout */
+  overflow: hidden;   /* Isso garante que a foto respeite a curva do card */
+}
+/* --- IMAGEM DO PRODUTO (ARREDONDADA E QUADRADA) --- */
+.produto-img-container-replica img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 8px; /* Reforce aqui também se necessário */
+}
+
+.produto-detalhes-replica {
+  flex: 1;
+  padding: 0 25px;
+}
+
+.produto-detalhes-replica h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 6px;
+  font-weight: 400;
+}
+
+.sku-replica { font-size: 0.9rem; color: #777; margin-bottom: 10px; }
+
+.preco-unitario-replica {
+  color: #c19b4a;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/* --- CONTROLES (REPLICANDO POSIÇÃO DA PRINT 2) --- */
+.produto-controles-replica {
+  /* Removemos o flex daqui para usar posicionamento individual nos filhos se necessário */
+}
+
+.btn-lixo-minimal {
+  position: absolute; /* Fixa no card */
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  transition: opacity 0.2s;
+  color: #888;
+}
+
+.btn-lixo-minimal:hover { opacity: 0.6; color: #d93025; }
+
+.seletor-qtd-minimal {
+  position: absolute; /* Fixa no card */
+  bottom: 20px; /* Alinhado ao rodapé igual à print */
+  right: 20px; /* Alinhado à direita igual à print */
+  display: flex;
+  align-items: center;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.seletor-qtd-minimal button {
+  background: #f9f9f9;
+  border: none;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.seletor-qtd-minimal button:hover { background: #f0f0f0; }
+
+.qtd-numero {
+  width: 40px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #333;
+  border-left: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- RESUMO PEDIDO --- */
+.resumo-pedido-replica {
+  background: #fff;
+  padding: 35px;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+}
+
+.resumo-pedido-replica h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  color: #6d1e1e;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.resumo-item-replica {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  color: #555;
+}
+
+.resumo-valor { font-weight: 600; color: #333; }
+
+.input-section-replica { margin-bottom: 25px; }
+
+.section-border-top {
+  border-top: 1px solid #eee;
+  padding-top: 25px;
+}
+
+.input-section-replica label {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.input-row-replica {
+  display: flex;
+  gap: 10px;
+}
+
+.input-row-replica input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background: #fdfdfd;
+}
+
+.btn-aplicar-outline {
+  background: #fff;
+  color: #333;
+  border: 1px solid #333;
+  padding: 0 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-aplicar-outline:hover {
+  background-color: #d4af37;
+  border-color: #a8863b;
+  color: #fff;
+}
+
+.resumo-divider { border: 0; border-top: 1px solid #eee; margin: 25px 0; }
+
+.resumo-total-replica {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.total-gold-replica {
+  color: #c19b4a;
+  font-family: 'Playfair Display', serif;
+}
+
+.btn-finalizar-replica {
+  width: 100%;
+  background: linear-gradient(180deg, #6d1e1e 0%, #c19b4a 100%);
+  color: white;
+  border: none;
+  padding: 18px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  
+  /* --- ESTE É O AJUSTE SOLICITADO --- */
+  margin-bottom: 20px; /* Cria espaço elegate para o botão de baixo */
+  /* --------------------------------- */
+}
+
+.btn-finalizar-replica:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(109,30,30,0.3);
+}
+
+/* --- BOTÃO CONTINUAR COMPRANDO (RÉPLICA VISUAL) --- */
+.btn-continuar-replica {
+  width: 100%;
+  background: #fff; /* Fundo branco */
+  color: #777; /* Texto cinza suave conforme print 2 */
+  border: 1px solid #e0e0e0; /* Borda cinza clara */
+  padding: 15px; /* Altura confortável */
+  font-size: 1rem;
+  border-radius: 8px; /* Cantos arredondados */
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn-continuar-replica:hover {
+  background: #f9f9f9; /* Fundo cinza muito claro no hover */
+  border-color: #ccc;
+  color: #333; /* Texto escurece no hover */
+}

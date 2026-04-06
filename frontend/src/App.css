@@ -182,3 +182,156 @@
     border-right-color: var(--border);
   }
 }
+
+.cart-link-container {
+  text-decoration: none;
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+
+.cart-icon-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-img {
+  width: 35px; 
+  height: auto;
+}
+
+/* --- AJUSTE PREMIUM DO BADGE (AUTO-ADAPTÁVEL) --- */
+.icon-btn.cart-btn-wrapper {
+  position: relative !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  overflow: visible; 
+}
+
+.cart-badge {
+  position: absolute !important;
+  top: -4px;      /* Ajustado para melhor harmonia visual */
+  right: -6px;    /* Ajustado para não sobrepor muito o ícone */
+  
+  background-color: #c19b4a; /* Dourado Lumie Oficial */
+  color: white;
+  font-size: 10px; /* Fonte levemente menor para caber o "99+" */
+  font-weight: 700;
+  
+  /* Lógica de Pílula: o badge se expande sem achatar */
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;  /* Espaço lateral para o texto "99+" */
+  border-radius: 10px; /* Faz o formato de pílula arredondada */
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  border: 1.5px solid #c19b4a; /* Borda branca para separação e luxo */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  
+  pointer-events: none; 
+  z-index: 10;
+  line-height: 1;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Estilo para quando a mensagem de erro aparecer no carrinho */
+.seletor-qtd-minimal-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-menu-container {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  z-index: 1000;
+  margin-top: 10px;
+  overflow: hidden;
+  border: 1px solid #eee;
+}
+
+.profile-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profile-dropdown li {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #4a2a1a;
+  transition: background 0.2s;
+  text-align: left;
+}
+
+.profile-dropdown li:hover {
+  background-color: #f9f5f0;
+  color: #b8974d;
+}
+
+.logout-option {
+  border-top: 1px solid #eee;
+  color: #ff4d4d !important;
+}
+
+.logged-user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 20px;
+  transition: background 0.2s;
+}
+
+.logged-user-info:hover {
+  background-color: #f9f5f0;
+}
+
+.user-avatar-gradient {
+  width: 32px;
+  height: 32px;
+  /* Gradiente da Lumie image_9bc64e.png */
+  background: linear-gradient(135deg, #4a2a1a 0%, #b8974d 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: 'Serif', serif;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.user-name-text {
+  font-size: 14px;
+  color: #4a2a1a;
+  font-weight: 500;
+}
+
+.dropdown-arrow {
+  color: #888;
+  transition: transform 0.2s;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}

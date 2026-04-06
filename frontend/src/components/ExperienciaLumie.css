@@ -1,0 +1,66 @@
+.experiencia-section {
+  background-color: #fff;
+  padding: 40px 6%;
+  text-align: center;
+}
+.experiencia-header {
+  margin-bottom: 70px;
+}
+
+.subtitle-spacing {
+  letter-spacing: 3px;
+  font-size: 0.75rem;
+  color: #666;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.vantagens-grid {
+  display: grid;
+  /* Define apenas 3 colunas para centralizar os itens restantes */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 30px;
+  max-width: 1000px;
+  margin: 40px auto 0 auto;
+}
+
+.vantagem-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.vantagem-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.vantagem-icon {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #c19b4a; /* Cor dourada nos ícones */
+}
+
+.vantagem-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+}
+
+.vantagem-desc {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.6;
+  max-width: 200px;
+}
+
+/* Responsivo para celulares */
+@media (max-width: 768px) {
+  .vantagens-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+}
